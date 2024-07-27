@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trafic light signal</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div id="trafic_box">
+      <div id="red"></div>
+      <div id="yellow"></div>
+      <div id="green"></div>
+    </div>
+    <script>
+      function green() {
+        var green = document.getElementById("green");
+        var red = document.getElementById("red");
+        green.style.backgroundColor = "green";
+
+        green.style.boxShadow = "0px 0px 10px green, 0px 0px 20px green";
+        setTimeout(yellow, 2000);
+        red.style.backgroundColor = "black";
+        red.style.boxShadow = "none";
+      }
+
+      function red() {
+        var red = document.getElementById("red");
+        red.style.backgroundColor = "red";
+        red.style.boxShadow = "0px 0px 10px green, 0px 0px 20px red";
+        var yellow = document.getElementById("yellow");
+        yellow.style.backgroundColor = "black";
+        yellow.style.boxShadow = "none";
+        setTimeout(green, 2000);
+      }
+      function yellow() {
+        var yellow = document.getElementById("yellow");
+        var green = document.getElementById("green");
+        yellow.style.backgroundColor = "yellow";
+        yellow.style.boxShadow = "0px 0px 10px green, 0px 0px 20px yellow";
+        green.style.backgroundColor = "black";
+        green.style.boxShadow = "none";
+        setTimeout(red, 2000);
+      }
+      green();
+    </script>
+  </body>
+</html>
